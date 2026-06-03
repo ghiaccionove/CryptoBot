@@ -1,0 +1,28 @@
+[project]
+name = "cryptobot"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ghiaccionove",email = "ant.cito@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ccxt (>=4.3.0)",
+    "numpy (>=1.26.0)",
+    "pandas (>=2.2.0)",
+    "pandas-ta (>=0.3.14b)",
+    "python-dotenv (>=1.0.0)",
+    "scikit-learn (>=1.4.0)",
+    "xgboost (>=2.0.0)",
+    "backtesting (>=0.3.3)",
+    "flask (>=3.0.0)",
+    "jinja2 (>=3.1.6)",
+    "markupsafe (>=2.1.5)",
+    "optuna (>=3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

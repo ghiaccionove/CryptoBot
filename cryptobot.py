@@ -257,7 +257,9 @@ def build_features(df):
     df["trend_up"]       = (df["close"] > ema20).astype(int)
 
     # === Feature 15m contesto (resample da 5m) ===
-    df_15m = df[["open", "high", "low", "close", "volume"]].resample("15min").agg({
+    df_15m = df[["open", "high", "low", "close", "volume"]].resample(
+        "15min", closed="right", label="right"
+    ).agg({
         "open": "first", "high": "max", "low": "min",
         "close": "last", "volume": "sum"
     }).dropna()
@@ -270,7 +272,9 @@ def build_features(df):
         df[col] = df_15m[col].reindex(df.index, method="ffill")
 
     # === Feature 1h contesto (resample da 5m) ===
-    df_1h = df[["open", "high", "low", "close", "volume"]].resample("1h").agg({
+    df_1h = df[["open", "high", "low", "close", "volume"]].resample(
+        "1h", closed="right", label="right"
+    ).agg({
         "open": "first", "high": "max", "low": "min",
         "close": "last", "volume": "sum"
     }).dropna()
